@@ -11,10 +11,10 @@ This project is input validation, exception handling, and database interaction.
 - User Registration
 - User Login
 - Username & Password Validation
-- Secure retry loops (no forced exits)
+- Secure retry loops 
 
 ### Banking Operations
-- Create Bank Account (auto-managed)
+- Create Bank Account
 - Deposit Money
 - Withdraw Money
 - Balance Enquiry
@@ -22,9 +22,9 @@ This project is input validation, exception handling, and database interaction.
 
 ### Backend Design
 - Layered Architecture (DAO → Service → Main)
-- JDBC with PreparedStatements
+- JDBC 
 - Custom Exceptions
-- Defensive ResultSet handling
+- ResultSet handling
 - Safe Scanner input handling (no infinite loops)
 
 ---
@@ -38,3 +38,4 @@ This project is input validation, exception handling, and database interaction.
 - **Git & GitHub**
 
 ---
+
