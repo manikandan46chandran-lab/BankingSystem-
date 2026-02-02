@@ -51,7 +51,7 @@ public class TransactionDAO {
                 );
             }
         }
-        return history; // ✅ empty list is OK
+        return history; 
     }
 
 }
