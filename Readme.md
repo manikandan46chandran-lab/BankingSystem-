@@ -1,7 +1,7 @@
 #  Simple Banking System (Java + JDBC + SQL)
 
 A **console-based End-to-End (E2E) Mini Online Banking System** built using **Core Java, JDBC, and MySQL**.  
-This project is input validation, exception handling, and database interaction.
+This project contains input validation, exception handling, and database interaction.
 
 ---
 
@@ -21,7 +21,6 @@ This project is input validation, exception handling, and database interaction.
 - Transaction History
 
 ### Backend Design
-- Layered Architecture (DAO → Service → Main)
 - JDBC 
 - Custom Exceptions
 - ResultSet handling
@@ -38,4 +37,5 @@ This project is input validation, exception handling, and database interaction.
 - **Git & GitHub**
 
 ---
+
 
