@@ -25,12 +25,15 @@ public class TransactionDAO {
         }
     }
 
-    // Fetch transaction history
-    public List<String> getTransactions(int accountId)
-            throws SQLException {
 
-        String sql =
-                "SELECT type, amount, txn_time FROM transactions WHERE account_id=? ORDER BY txn_time DESC";
+    public List<String> getTransactions(int accountId) throws SQLException {
+
+        String sql = """
+        SELECT type, amount, txn_time
+        FROM transactions
+        WHERE account_id=?
+        ORDER BY txn_time DESC
+    """;
 
         List<String> history = new ArrayList<>();
 
@@ -41,14 +44,15 @@ public class TransactionDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                String record =
-                        rs.getString("txn_time") + " | " +
+                history.add(
+                        rs.getTimestamp("txn_time") + " | " +
                                 rs.getString("type") + " | " +
-                                rs.getDouble("amount");
-
-                history.add(record);
+                                rs.getDouble("amount")
+                );
             }
         }
-        return history;
+        return history; // ✅ empty list is OK
     }
+
 }
+

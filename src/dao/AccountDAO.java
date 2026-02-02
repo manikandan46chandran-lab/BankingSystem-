@@ -22,8 +22,25 @@ public class AccountDAO {
 
             ps.setInt(1, userId);
             ResultSet rs = ps.executeQuery();
-            rs.next();
-            return rs.getInt("account_id");
+
+            if (rs.next()) {
+                return rs.getInt("account_id");
+            } else {
+                throw new Exception("Account does not exist");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public boolean accountExists(int userId) throws SQLException {
+        String sql = "SELECT 1 FROM accounts WHERE user_id=?";
+        try (Connection con = DBConnection.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+            return rs.next();
         }
     }
 
@@ -34,8 +51,14 @@ public class AccountDAO {
 
             ps.setInt(1, userId);
             ResultSet rs = ps.executeQuery();
-            rs.next();
-            return rs.getDouble("balance");
+
+            if (rs.next()) {
+                return rs.getDouble("balance");
+            } else {
+                throw new Exception("Account not found for this user");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
