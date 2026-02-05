@@ -37,5 +37,33 @@ This project contains input validation, exception handling, and database interac
 - **Git & GitHub**
 
 ---
+##  Database Schema
 
+### Database
+```sql
+CREATE DATABASE mini_bank;
+USE mini_bank;
+Users Table
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(100)
+);
 
+Accounts Table
+CREATE TABLE accounts (
+    account_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    balance DOUBLE DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+Transactions Table
+CREATE TABLE transactions (
+    txn_id INT AUTO_INCREMENT PRIMARY KEY,
+    account_id INT,
+    type VARCHAR(20),
+    amount DOUBLE,
+    txn_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id)
+);
